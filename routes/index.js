@@ -26,6 +26,7 @@ router.get('/contactme', function(req, res, next) {
   res.render('contactme', { });
 });
 
-router.use(express.static('./public/stylesheets/style.css'));
+
+router.use(express.static('../public/stylesheets/style.css'));
 
 module.exports = router;
