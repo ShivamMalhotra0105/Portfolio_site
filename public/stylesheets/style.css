@@ -1,6 +1,22 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+}
+
+.a{
+  text-align: center
+}
+
+img{
+ height: 200px;
+
+}
+
+h1{
+position: relative;
+bottom: 150px;
+text-align: right;
 }
 
 a {

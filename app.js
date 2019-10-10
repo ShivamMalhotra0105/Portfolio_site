@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bodyParser = require('body-parser');
+var nodemailer = require('nodemailer');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -13,6 +15,8 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+app.use(bodyParser.urlencoded({extended: false}));
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -21,6 +25,32 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+app.post('/contactme', function (req, res) {
+  var mailOpts, smtpTrans;
+  //Setup Nodemailer transport, I chose gmail. Create an application-specific password to avoid problems.
+  var smtpTrans = nodemailer.createTransport("smtps://youruser%40gmail.com:"+encodeURIComponent('yourpass#123') + "@smtp.gmail.com:465");
+  //2014,nd,ExceptionsHub,Retrieved fro URL:https://exceptionshub.com/nodemailer-using-gmail-cannot-create-property-mailer-on-string-smtp.html
+
+  //Mail options
+  mailOpts = {
+  from: req.body.name + req.body.email,
+  to: 'yyyyyyyyyy@gmail.com',
+  subject: req.body.email + '  --Msg from contactme-form',
+  text: "Name: " + req.body.name + "Email: "  + req.body.email + 
+        "Contact No:  " + req.body.contactNo + "QUERY: " + req.body.message
+  };
+  smtpTrans.sendMail(mailOpts, function (error, response) {
+  //Alert on event of message sent succeeds or fail.
+  if (error) {
+    res.render('contactme',{msg : 'Error!', err : true});
+  }
+  else {
+    res.render('contactme',{msg : 'Message sent! ', err : false});
+  }
+  smtpTrans.close();
+  });
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
