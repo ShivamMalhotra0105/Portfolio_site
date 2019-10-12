@@ -30,7 +30,6 @@ app.post('/contactme', function (req, res) {
   var mailOpts, smtpTrans;
   //Setup Nodemailer transport
   var smtpTrans = nodemailer.createTransport("smtps://youruser%40gmail.com:"+encodeURIComponent('yourpass#123') + "@smtp.gmail.com:465");
-  //2014,nd,ExceptionsHub,Retrieved fro URL:https://exceptionshub.com/nodemailer-using-gmail-cannot-create-property-mailer-on-string-smtp.html
 
   //Mail options
   mailOpts = {

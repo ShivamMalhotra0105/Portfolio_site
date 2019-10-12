@@ -3,9 +3,14 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/custom.css')
 
   
     body
+    //-Facebook
+    #fb-root
+    script(async='', defer='', crossorigin='anonymous', src='https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=475404369693290&autoLogAppEvents=1')
+    .fb-page(data-href='https://www.facebook.com/shivam.malhotra.790693', data-tabs='timeline', data-width='', data-height='', data-small-header='false', data-adapt-container-width='true', data-hide-cover='false', data-show-facepile='true')
     include ./partials/header
     include ./partials/footer
     block content
