@@ -28,14 +28,14 @@ app.use('/users', usersRouter);
 
 app.post('/contactme', function (req, res) {
   var mailOpts, smtpTrans;
-  //Setup Nodemailer transport, I chose gmail. Create an application-specific password to avoid problems.
+  //Setup Nodemailer transport
   var smtpTrans = nodemailer.createTransport("smtps://youruser%40gmail.com:"+encodeURIComponent('yourpass#123') + "@smtp.gmail.com:465");
   //2014,nd,ExceptionsHub,Retrieved fro URL:https://exceptionshub.com/nodemailer-using-gmail-cannot-create-property-mailer-on-string-smtp.html
 
   //Mail options
   mailOpts = {
   from: req.body.name + req.body.email,
-  to: 'yyyyyyyyyy@gmail.com',
+  to: 'xxxxxxxxxxxx@gmail.com',
   subject: req.body.email + '  --Msg from contactme-form',
   text: "Name: " + req.body.name + "Email: "  + req.body.email + 
         "Contact No:  " + req.body.contactNo + "QUERY: " + req.body.message
