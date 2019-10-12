@@ -109,3 +109,70 @@ h4{
   h3{
     padding-top: 30px
   }
+
+  h5{
+    font-size: 30px;
+    text-align: center;
+  }
+
+
+ .desc{
+   padding-top: 20px;
+   text-align: left;
+   width: 20%;
+   height: 10%;
+   font-weight: bold;
+   background-color: #ffffff;
+   border: 1px solid black;
+   opacity: 0.6;
+   filter: alpha(opacity=60); /* For IE8 and earlier */
+   position: fixed; /* or absolute */
+   top: 50%;
+   left: 50%;
+  /* bring your own prefixes */
+   transform: translate(-230%, 125%);
+ }
+
+ .image1{
+  transform: translate(109%, -2%);
+ }
+
+ .rps{
+
+  padding-top: 20px;
+   text-align: left;
+   width: 20%;
+   height: 10%;
+   font-weight: bold;
+   background-color: #ffffff;
+   border: 1px solid black;
+   opacity: 0.6;
+   filter: alpha(opacity=60); /* For IE8 and earlier */
+   position: fixed; /* or absolute */
+   top: 50%;
+   left: 50%;
+   transform: translate(-44%, 120%);
+
+ }
+
+ .image2{
+    transform: translate(315%, -3%);
+ }
+
+ .tictactoe{
+  padding-top: 20px;
+  text-align: left;
+  width: 20%;
+  height: 10%;
+  font-weight: bold;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+  filter: alpha(opacity=60); 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(140%, 120%);
+
+ }
+
