@@ -1,3 +1,27 @@
+/* File Name: CSS DOCUMENT
+ Author Name: Shivam Malhotra
+ Website Name: Portfolio Site
+ File Description: To Style the Website */
+
+
+ .footer p{
+  transform: translate(0%, 150%);
+}
+
+
+.fa-linkedin {
+  background: #0f6ed4;
+  color: white;
+}
+
+.fa-facebook {
+  background: #0f6ed4;
+  color: white;
+  transform: translate(2150%, -50%);
+}
+
+
+
 .fa {
     font-size: 31px;
     width: 30px;
@@ -11,32 +35,21 @@
     opacity: 0.8;
 }
 
-  .fa-facebook {
-    background: #0f6ed4;
-    color: white;
-    transform: translate(2150%, -50%);
-  }
-
   .fa-twitter {
     background: cyan;
     color: white;
-    transform: translate(2170%, -50%);
+    transform: translate(2190%, -50%);
   }
   
   .fa-google {
     background: #bf1900;
     color: white;
-    transform: translate(2185%, -50%);
+    transform: translate(2200%, -50%);
   }
   
-  .fa-linkedin {
-    background: #0f6ed4;
-    color: white;
-  }
+  
 
-  .footer p{
-    transform: translate(0%, 150%);
-  }
+  
 
  
 

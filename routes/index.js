@@ -1,9 +1,15 @@
+// File Name: JAVASCRIPT DOCUMENT
+// Author Name: Shivam Malhotra
+//Website Name: Portfolio Site
+//File Description: ALL ROUTES FILE
+
+
 var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'My Website' });
+  res.render('index', { title: 'Welcome To Shivam\'s Portfolio' });
 });
 
 /* GET home page. */
@@ -26,8 +32,5 @@ router.get('/projectpage', function(req, res, next) {
 router.get('/contactme', function(req, res, next) {
   res.render('contactme', { });
 });
-
-
-
 
 module.exports = router;

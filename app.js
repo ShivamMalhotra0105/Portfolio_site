@@ -1,3 +1,9 @@
+// File Name: JAVASCRIPT DOCUMENT
+// Author Name: Shivam Malhotra
+//Website Name: Portfolio Site
+//File Description: Npm Express Package Javascript File
+
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -28,8 +34,6 @@ app.use('/users', usersRouter);
 
 app.post('/contactme', function (req, res) {
   var mailOpts, smtpTrans;
-  //Setup Nodemailer transport
-  var smtpTrans = nodemailer.createTransport("smtps://youruser%40gmail.com:"+encodeURIComponent('yourpass#123') + "@smtp.gmail.com:465");
 
   //Mail options
   mailOpts = {
