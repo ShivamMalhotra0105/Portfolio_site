@@ -1,36 +1,36 @@
 .fa {
-    font-size: 30px;
+    font-size: 31px;
     width: 30px;
     text-align: center;
     text-decoration: none;
-    border-radius: 50%;
+    border-radius: 51%;
     transform: translate(2200%, -50%);
   }
 
   .fa:hover {
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
   .fa-facebook {
-    background: #3B5998;
+    background: #0f6ed4;
     color: white;
     transform: translate(2150%, -50%);
   }
 
   .fa-twitter {
-    background: #55ACEE;
+    background: cyan;
     color: white;
     transform: translate(2170%, -50%);
   }
   
   .fa-google {
-    background: #dd4b39;
+    background: #bf1900;
     color: white;
     transform: translate(2185%, -50%);
   }
   
   .fa-linkedin {
-    background: #007bb5;
+    background: #0f6ed4;
     color: white;
   }
 
