@@ -11,6 +11,17 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var nodemailer = require('nodemailer');
+var session = require('express-session');
+var mongoose = require('mongoose');
+
+mongoose.connect('mongodb+srv://lab03:lab03@cluster0-rywvp.mongodb.net/test?retryWrites=true&w=majority',
+ {useNewUrlParser: true, useUnifiedTopology: true}
+ );
+
+ var db = mongoose.connection;
+ db.on('error', () => console.log("Error Connecting to mongo db"));
+ db.once('open', () => console.log("Connected to MongoDB"));
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -28,6 +39,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({ 
+  secret : 'unicorn',
+  resave : false,
+  saveUninitialized : true
+})
+);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
