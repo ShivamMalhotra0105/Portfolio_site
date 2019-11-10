@@ -1,25 +1,33 @@
+// File Name: JAVASCRIPT DOCUMENT
+// Author Name: Shivam Malhotra
+//Website Name: Portfolio Site
+//File Description: Authenticate File
+
+
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 const passport = require('passport');
 
 
+
 router.get('/login', (req, res, next) => {
   res.render('auth/login', { error: req.flash('error') });
 });
 
-router.post(
-  '/login',
-  passport.authenticate('local', {
-    failureFlash: 'There was an issue with your username or password',
-    failureRedirect: '/login',
-    successRedirect: '/'
-  })
-);
-
 router.get('/register', (req, res, next) => {
   res.render('auth/register', {});
 });
+
+
+router.post(
+  '/login',
+  passport.authenticate('local', {
+    failureRedirect: '/login',
+    successRedirect: '/homepage',
+    failureFlash: 'Error with your username and password',
+  })
+);
 
 
 router.post('/register', (req, res, next) => {

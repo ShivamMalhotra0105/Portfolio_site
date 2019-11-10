@@ -46,6 +46,12 @@
     color: white;
     transform: translate(2200%, -50%);
   }
+
+  .container {
+    transform: translate(0%, 60%);
+
+  }
+
   
   
 

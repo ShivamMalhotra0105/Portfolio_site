@@ -1,7 +1,7 @@
 // File Name: JAVASCRIPT DOCUMENT
 // Author Name: Shivam Malhotra
 //Website Name: Portfolio Site
-//File Description: Npm Express Package Javascript File
+//File Description: Npm Express Packages Javascript File
 
 
 var createError = require('http-errors');
@@ -18,6 +18,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var User = require('./models/user');
 var flash = require('connect-flash');
 
+//connection string mongodb
 mongoose.connect('mongodb+srv://lab03:lab03@cluster0-rywvp.mongodb.net/test?retryWrites=true&w=majority',
  {useNewUrlParser: true, useUnifiedTopology: true}
  );
@@ -45,16 +46,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({ 
-  secret : 'unicorn',
-  resave : false,
-  saveUninitialized : true
-})
-);
+app.use(session({ secret : 'unicorn', resave : false,saveUninitialized : true}));
 
 app.use(flash());
 
-
+//passport init
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -63,14 +59,18 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
-
-
 app.use((req, res, next) => {
-  res.locals.isLoggedIn = req.isAuthenticated();
+  res.locals.userLoggedIn = req.isAuthenticated();
   res.locals.user = req.user;
+
+  if (req.isAuthenticated()) {
+    res.locals.role = req.user.role;
+  } else {
+    res.locals.role = null;
+  }
+
   next();
-})
+});
 
 app.post('/contactme', function (req, res) {
   var mailOpts, smtpTrans;
@@ -98,6 +98,7 @@ app.post('/contactme', function (req, res) {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/', authRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
